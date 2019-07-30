@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./data:/usr/share/nginx/html
+    ports:
+      - "9000:80"
   web:
     build: .
     command: ["./init.sh"]
@@ -12,5 +18,5 @@ services:
       - .:/code
     privileged: true
     ports:
-      - "8000:8000"
+      - "7000:8000"
     restart: always
