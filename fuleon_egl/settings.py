@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1e()_7&9#5x#clnb5ldu5p^bm*!a!1z1p!8i4^*9+4uu18%x-p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -120,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MODE = config('MODE', default='local')
+
+if MODE == 'local':
+    EGL_SERVER = config('LOCAL_EGL_SERVER')
+elif MODE == 'remote':
+    EGL_SERVER = config('REMOTE_EGL_SERVER')
+elif MODE == 'docker':
+    EGL_SERVER = config('DOCKER_EGL_SERVER')
