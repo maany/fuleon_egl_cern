@@ -1,3 +1,4 @@
 ---
 links_5000: "ends_between=now()-3h,now()&limit=5000"
+#links_12h_5000: "ends_between=now()-12h,now()&starts_between=&limit=5000"
 
