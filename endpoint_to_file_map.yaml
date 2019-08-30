@@ -1,7 +1,9 @@
 ---
-links_3h: "ends_between=now()-3h,now()&starts_between=now()-3h,now()"
-links_6h: "ends_between=now()-6h,now()&starts_between=now()-6h,now()"
-links_12h: "ends_between=now()-12h,now()&starts_between=now()-12h,now()"
-links_1d: "ends_between=now()-1d,now()&starts_between=now()-1d,now()"
-links_2d: "ends_between=now()-2d,now()&starts_between=now()-2d,now()"
-
+data_links:
+  links_3h: "ends_between=now()-3h,now()&starts_between=now()-3h,now()"
+  links_6h: "ends_between=now()-6h,now()&starts_between=now()-6h,now()"
+  links_12h: "ends_between=now()-12h,now()&starts_between=now()-12h,now()"
+  links_1d: "ends_between=now()-1d,now()&starts_between=now()-1d,now()"
+  links_2d: "ends_between=now()-2d,now()&starts_between=now()-2d,now()"
+sites:
+  sites: ""

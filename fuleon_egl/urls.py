@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fuleon_egl.api.fetch_data import fetch_data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('fetch_data/', fetch_data),
 ]
