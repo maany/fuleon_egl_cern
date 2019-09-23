@@ -43,10 +43,10 @@ RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setupt
     yum -y clean all --enablerepo='*'
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH.
-COPY ./s2i/bin/ $STI_SCRIPTS_PATH
+COPY s2i/bin $STI_SCRIPTS_PATH
 
 # Copy crontab
-COPY ./s2i/etc/ ${APP_ROOT}/etc/
+COPY etc ${APP_ROOT}/etc/
 
 # - Create a Python virtual environment for use by any application to avoid
 #   potential conflicts with Python packages preinstalled in the main Python
