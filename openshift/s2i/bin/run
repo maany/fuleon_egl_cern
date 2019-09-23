@@ -66,7 +66,7 @@ manage_file=$APP_HOME/manage.py
 if should_migrate; then
   if [[ -f "$manage_file" ]]; then
     echo "---> Making migrations"
-    python "$manage_file" makemigrations core
+    python "$manage_file" makemigrations
     echo "---> Migrating database ..."
     python "$manage_file" migrate --noinput
     echo "---> Creating Django Admin user"
