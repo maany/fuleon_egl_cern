@@ -12,7 +12,7 @@ services:
     command: ["./init.sh"]
     environment:
       - "SECRET_KEY=#9n5v_uwn+880+53w_avj&fp!ul=wf^jlls7t+v5f^z4553i98"
-      - "MODE=docker"
+      - "MODE=remote"
       - "REFRESH_INTERVAL=10"
     volumes:
       - .:/code
