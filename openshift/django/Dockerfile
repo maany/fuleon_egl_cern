@@ -58,8 +58,8 @@ RUN source scl_source enable rh-python36 && \
     fix-permissions ${APP_ROOT} -P && \
     rpm-file-permissions
 
-#shared volume for static files
-VOLUME ${APP_ROOT}/src/data
+#shared volume for static files, needs to be mounted later
+RUN mkdir -p ${APP_ROOT}/src/data
 
 # Using Supercronic for cron jobs
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.1.9/supercronic-linux-amd64 \

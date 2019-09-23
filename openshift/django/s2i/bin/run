@@ -85,7 +85,7 @@ if is_gunicorn_installed; then
   if [[ -z "$APP_MODULE" ]]; then
     # Look only in the directory specified by APP_HOME, or the current directory
     # replace all "/" with ".", remove leading "." and ".py" suffix
-    APP_MODULE=$(find $APP_ROOT/src/ -maxdepth 1 -type f -name 'wsgi.py' | sed 's:/:.:g;s:^\.\+::;s:\.py$::')
+    APP_MODULE=$(find $APP_ROOT/src/ -maxdepth 2 -type f -name 'wsgi.py' | sed 's:/:.:g;s:^\.\+::;s:\.py$::')
   fi
 
   if [[ -z "$APP_MODULE" && -f setup.py ]]; then
