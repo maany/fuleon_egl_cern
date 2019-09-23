@@ -34,7 +34,7 @@ LABEL summary="$SUMMARY" \
 
 RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setuptools rh-python36-python-pip nss_wrapper \
         httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
-        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant cronie" && \
+        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant cronie sqlite3" && \
     yum install -y centos-release-scl && \
     yum -y --setopt=tsflags=nodocs install --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
@@ -69,11 +69,10 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
  && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
 
-# Setting environment variables required for running rucio-opint-backend
+# Setting environment variables required for running fuleon-egl
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONPATH=${APP_ROOT}/src:$PYTHONPATH
-ENV DJANGO_SETTINGS_MODULE='rucio_opint_backend.apps.core.settings'
 
 # - In order to drop the root user, we have to make some directories world
 #   writable as OpenShift default security model is to run the container

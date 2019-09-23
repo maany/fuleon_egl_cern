@@ -81,7 +81,7 @@ if is_gunicorn_installed; then
   if [[ -z "$APP_MODULE" ]]; then
     # Look only in the directory specified by APP_HOME, or the current directory
     # replace all "/" with ".", remove leading "." and ".py" suffix
-    APP_MODULE=$(find $APP_ROOT/src/rucio_opint_backend/apps/core -maxdepth 1 -type f -name 'wsgi.py' | sed 's:/:.:g;s:^\.\+::;s:\.py$::')
+    APP_MODULE=$(find $APP_ROOT/src/ -maxdepth 1 -type f -name 'wsgi.py' | sed 's:/:.:g;s:^\.\+::;s:\.py$::')
   fi
 
   if [[ -z "$APP_MODULE" && -f setup.py ]]; then
@@ -92,7 +92,7 @@ if is_gunicorn_installed; then
     export WEB_CONCURRENCY=${WEB_CONCURRENCY:-$(get_default_web_concurrency)}
 
     echo "---> Serving application with gunicorn ($APP_MODULE) ..."
-    exec gunicorn "rucio_opint_backend.apps.core.wsgi:application" --bind=0.0.0.0:8080 --access-logfile=- --config "$APP_CONFIG"
+    exec gunicorn "fuleon_egl.wsgi:application" --bind=0.0.0.0:8080 --access-logfile=- --config "$APP_CONFIG"
   fi
 fi
 
