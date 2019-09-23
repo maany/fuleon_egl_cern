@@ -72,6 +72,8 @@ if should_migrate; then
     echo "---> Migrating database ..."
     python "$manage_file" migrate --noinput
     echo "---> Creating Django Admin user"
+    python "$manage_file" collectstatic
+    echo "---> Creating Django Admin user"
     python "$manage_file" ensure_adminuser --username admin --email ${DJANGO_ADMIN_EMAIL} --password ${DJANGO_ADMIN_PASSWORD}
   else
     echo "WARNING: seems that you're using Django, but we could not find a 'manage.py' file."
