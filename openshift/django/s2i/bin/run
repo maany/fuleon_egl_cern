@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update crontab
-*/${REFRESH_INTERVAL} * * * * root /usr/bin/python3 /code/manage.py fetch_data >> $APP_ROOT/etc/crontab
+echo "*/${REFRESH_INTERVAL} * * * * root python $APP_ROOT/src/manage.py fetch_data" >> $APP_ROOT/etc/crontab
 
 #start supercronic
 supercronic $APP_ROOT/etc/crontab > $APP_ROOT/etc/supercronic.out 2>&1 &
