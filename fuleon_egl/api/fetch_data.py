@@ -7,7 +7,6 @@ from requests.exceptions import HTTPError
 
 def fetch(url):
 
-
         response = requests.get(url)
         return response.text
 
