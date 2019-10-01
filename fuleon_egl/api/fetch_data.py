@@ -24,11 +24,11 @@ def fetch_data(request=None):
         for endpoint, data in map.items():
             for filename, query_string in data.items():
                 if len(query_string)> 0:
-                    url = "http://{egl_server}:8000/rest/{endpoint}?{query_string}".format(egl_server=egl_server,
+                    url = "http://{egl_server}/rest/{endpoint}?{query_string}".format(egl_server=egl_server,
                                                                                            endpoint=endpoint,
                                                                                            query_string=query_string)
                 else:
-                    url = "http://{egl_server}:8000/rest/{endpoint}".format(egl_server=egl_server,
+                    url = "http://{egl_server}/rest/{endpoint}".format(egl_server=egl_server,
                                                                             endpoint=endpoint)
                 data = fetch(url)
                 save(filename, data)
